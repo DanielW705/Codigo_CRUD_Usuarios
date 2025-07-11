@@ -1,0 +1,24 @@
+﻿@using Codigo_examen.Models.ViewModel
+@model LoginUserViewModel;
+<section class="login-card card-decoration">
+    <h3 class="card-title text-center">Inicia sesion</h3>
+    <div asp-validation-summary="ModelOnly" class="sumary-errors"></div>
+    <form class="login-body" asp-action="Login" asp-controller="Home" method="post">
+        <div class="form-group">
+            <label for="InputUsername">Nombre de usuario</label>
+            <input type="text" class="form-control" id="InputUsername" placeholder="Escriba su nombre de usuario" asp-for="NombreUsuario">
+            <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="InputPassword">Contraseña</label>
+            <input type="password" class="form-control" id="InputPassword" placeholder="Contraseña" asp-for="Contrasena">
+            <span asp-validation-for="Contrasena" class="text-danger"></span>
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="RemembermeCheckBox">
+            <label class="form-check-label" for="RemembermeCheckBox">Recuerdame</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Iniciar sesion</button>
+    </form>
+    <a asp-action="Create" asp-controller="Home" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Aun no tienes cuenta, crea una</a>
+</section>

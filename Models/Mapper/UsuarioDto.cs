@@ -1,0 +1,4 @@
+﻿namespace Codigo_examen.Models.Mapper
+{
+    public record class UsuarioDto(Guid Id, string Nombre, string ApellidoPaterno, string? ApellidoMaterno, string Calle, int? NumeroExterior, string Colonia, int CodigoPostal, string? Municipio, string? Estado, string Email);
+}
