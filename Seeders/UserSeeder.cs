@@ -4,6 +4,7 @@ namespace Codigo_examen.Seeders
 {
     public class UserSeeder : ISeeder<Usuarios[]>
     {
+        //Se hace el vaciado de los datos
         public Usuarios[] ApplySeed()
         {
             return new Usuarios[] {

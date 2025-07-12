@@ -4,6 +4,7 @@ namespace Codigo_examen.Models.ViewModel
 {
     public class ActualizarUsuarioViewModel
     {
+        //Este es un modelo para la vista usado para la insersion y obtencion de los datos al actualizarlos
         public Guid Id { get; set; }
         [Required(ErrorMessage = "Se requiere un nombre de usuario")]
         [MaxLength(30, ErrorMessage = "El usuario no puede ser mayor a 30 caracteres")]

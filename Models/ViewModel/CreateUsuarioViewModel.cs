@@ -4,6 +4,7 @@ namespace Codigo_examen.Models.ViewModel
 {
     public class CreateUsuarioViewModel
     {
+        //Este es un modelo para la vista usado para la insersion  datos al crear
         [Required(ErrorMessage = "Se requiere un nombre de usuario")]
         [MaxLength(30, ErrorMessage = "El usuario no puede ser mayor a 30 caracteres")]
         public string NombreUsuario { get; set; }

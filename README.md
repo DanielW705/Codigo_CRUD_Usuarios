@@ -14,3 +14,11 @@ Este programa esta diseñado para dar altas a usuarios, login, mostrar los demas 
 	- Uso de Bootstrap para el uso de plantillas de estilo.
 	- HTML Nativo para la maquetacion del proyecto.
 	- CSS Nativo para los estilos del proyecto.
+- Tecnologia de base de datos
+	- Uso de SQl server
+	- Se quiere modificar la cadena de conexion se debe ir al archivo en la raiz `appseting.json` y modifical la siguiente linea  
+	``
+"ConnectionStrings": {
+    "ApplicationConnectionString": "Server=.;Database=ApplicationDbContext;Integrated Security=True;Trust Server Certificate=True"
+  }
+	``

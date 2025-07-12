@@ -4,6 +4,7 @@ namespace Codigo_examen.Seeders
 {
     public class DatosExtraSeeder : ISeeder<DatosExtra[], Usuarios[]>
     {
+        //Se hace el vaciado de los datos tomando en cuenta la relacion
         public DatosExtra[] ApplySeed(Usuarios[] seed)
         {
             DatosExtra[] output = new DatosExtra[seed.Length];

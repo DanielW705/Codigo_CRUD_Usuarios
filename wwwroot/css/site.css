@@ -1,10 +1,11 @@
+/*Se aplica border box a todos los objetos y se pone la fuente Arial si no esta disponible calibri, etc.*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Calibri, sans-serif;
 }
-
+/*Hacemos que el contenedor tenga el tamaño completo de la pantalla*/
 .main-content {
     display: flex;
     width: 100%;
@@ -12,24 +13,24 @@
     justify-content: center;
     align-items: center;
 }
-
+/*Decoramos la tarjeta, con el borde y la sombra*/
 .card-decoration {
     border: 1px solid rgba(10,10,10, 0.2);
     padding: 30px;
     border-radius: 10px;
     box-shadow: rgba(10,10,10, 0.1) 2px 3px 10px;
 }
-
+/*Le establecemos los tamaños a la carta de inicio de sesion*/
 .login-card {
     width: 25%;
     height: 60%;
 }
-
+/*Le establecemos los tamaños de la seccion de creacion*/
 .create-card {
     width: 60%;
     height: 90%;
 }
-
+/*Cambiamos el tamaño y lo hacemos flexible, ademas de cambiar la direccion*/
 .login-body {
     height: 70%;
     display: flex;
@@ -38,11 +39,11 @@
     gap: 15px;
     margin-bottom: 5px;
 }
-
+/*Modificamos el tamaño de la seccion de errores*/
 .sumary-errors {
     height: 10%;
 }
-
+/*De la seccion de errores, la etiqueta hija ul le cambiamos el tamaño y eliminamos la decoracion*/
     .sumary-errors > ul {
         list-style: none;
         width: 100%;
@@ -50,7 +51,7 @@
         margin: 0;
         padding: 0;
     }
-
+        /*De la seccion de errores, la etiqueta hija ul y dentro de la anterior etiqueta cada punto de la lista tendra la decoracion de una tarjeta*/
         .sumary-errors > ul > li {
             background-color: #f8d7da;
             width: 100%;
@@ -64,7 +65,7 @@
             cursor: default;
             color: rgba(128, 0, 0, 0.75);
         }
-
+/*Modificamos el tamaño de la tabla de contenidos*/
 .container-table {
     width: 100%;
     height: 100%;

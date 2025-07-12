@@ -9,11 +9,12 @@ namespace Codigo_examen.UseCase
     {
         private readonly ApplicationDbContext _applicationDbContext;
 
+        //constructor para ser inyectado con los servicios
         public AddUserCase(ApplicationDbContext applicationDbContext)
         {
             _applicationDbContext = applicationDbContext;
         }
-
+        //Se valida que no exista un usuario
         private async Task<Result<bool>> ValidateUser(string nombreUsuario)
         {
             bool usuarioExiste = await _applicationDbContext.Usuarios
@@ -22,7 +23,7 @@ namespace Codigo_examen.UseCase
 
             return !usuarioExiste ? usuarioExiste : Result.Failure<bool>("El usuario ya existe");
         }
-
+        //Se valida que se confirme la contraseña y no se repita
         private async Task<Result<bool>> ValidatePassword(string contrasena, string confirmaContrasena)
         {
             bool passWordExiste = await _applicationDbContext.Usuarios
@@ -34,7 +35,7 @@ namespace Codigo_examen.UseCase
                     passWordExiste :
                     Result.Failure<bool>("Esta contraseña no se puede usar");
         }
-
+        // Se agrega al usuario a la base de datos
         private async Task<Result<Usuarios>> AddUsuarioToDatabase(CreateUsuarioViewModel nvoUsuarioViewModel)
         {
             Usuarios nvoUsuario = new Usuarios
@@ -62,7 +63,7 @@ namespace Codigo_examen.UseCase
 
             return nvoUsuario;
         }
-
+        // Si la contraseña es valida -> el usuario es valido -> se guarda en la base de datos
         public async Task<Result<Usuarios>> Execute(CreateUsuarioViewModel nvoUsuarioViewModel)
             => await ValidatePassword(nvoUsuarioViewModel.Contrasena, nvoUsuarioViewModel.ConfirmacionContraseña)
             .Bind(x => ValidateUser(nvoUsuarioViewModel.NombreUsuario))

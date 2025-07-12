@@ -3,6 +3,7 @@ using Codigo_examen.Models.ViewModel;
 
 namespace Codigo_examen.Models.Extensions
 {
+    //Metodo de extension de la clase usuarios para facilitar el mapeo
     public static class UsuariosExtension
     {
         public static UsuarioDto toDto(this Usuarios usuario, DatosExtra datosExtra) =>

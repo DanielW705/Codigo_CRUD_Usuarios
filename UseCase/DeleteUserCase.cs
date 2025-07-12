@@ -10,12 +10,14 @@ namespace Codigo_examen.UseCase
         private readonly ApplicationDbContext _applicationDbContext;
 
         private readonly GetUserCase _getUserCase;
+        //constructor para ser inyectado con los servicios
+
         public DeleteUserCase(ApplicationDbContext applicationDbContext, GetUserCase getUserCase)
         {
             _applicationDbContext = applicationDbContext;
             _getUserCase = getUserCase;
         }
-
+        //Borra el usuario de manera suave cambiando un campo
         private async Task<Result<bool>> DeleteUser(Usuarios usuario)
         {
             usuario.IsDeleted = true;

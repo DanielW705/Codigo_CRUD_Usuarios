@@ -10,6 +10,7 @@ namespace Codigo_examen.UseCase
     {
         private readonly ApplicationDbContext _applicationDbContext;
 
+        //constructor para ser inyectado con los servicios
         public ValidateUserCase(ApplicationDbContext applicationDbContext)
         {
             _applicationDbContext = applicationDbContext;
@@ -19,8 +20,9 @@ namespace Codigo_examen.UseCase
 
         private async Task<Result<Usuarios>> ValidateUserExist(LoginUserViewModel usuarios)
         {
+            //Buscamos el primer usuario que haya
             Usuarios? usuario = await _applicationDbContext.Usuarios.FirstOrDefaultAsync(u => u.NombreUsuario.Equals(usuarios.NombreUsuario) && u.Contrasena.Equals(usuarios.Contrasena));
-
+            // si no es nulo, se devuelve en caso contrario se manda error
             return usuario is not null ? usuario : Result.Failure<Usuarios>("El usuario no existe");
 
         }
