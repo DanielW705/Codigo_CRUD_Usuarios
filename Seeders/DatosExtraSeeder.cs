@@ -19,7 +19,7 @@ namespace Codigo_examen.Seeders
                     CodigoPostal = 1000 + i,
                     Municipio = "Example",
                     Estado = "Example",
-                    Email = "Example@example.com",
+                    Email = $"Example@example{i + 1}.com",
                     DatosExtraDelUsuario = value.Id
                 };
             return output;

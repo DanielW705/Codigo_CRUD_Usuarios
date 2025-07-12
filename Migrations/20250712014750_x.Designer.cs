@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Codigo_examen.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250711043610_Migracion completa")]
-    partial class Migracioncompleta
+    [Migration("20250712014750_x")]
+    partial class x
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -92,10 +92,10 @@ namespace Codigo_examen.Migrations
                             CodigoPostal = 1000,
                             Colonia = "Example",
                             DatosExtraDelUsuario = new Guid("e8332afa-665a-4692-a08d-623f06c7cfe3"),
-                            Email = "Example@example.com",
+                            Email = "Example@example1.com",
                             Estado = "Example",
                             Municipio = "Example",
-                            NumeroExterior = 0
+                            NumeroExterior = 1
                         },
                         new
                         {
@@ -106,10 +106,10 @@ namespace Codigo_examen.Migrations
                             CodigoPostal = 1001,
                             Colonia = "Example",
                             DatosExtraDelUsuario = new Guid("206c93fb-1500-40a0-9396-c2df231240b7"),
-                            Email = "Example@example.com",
+                            Email = "Example@example2.com",
                             Estado = "Example",
                             Municipio = "Example",
-                            NumeroExterior = 1
+                            NumeroExterior = 2
                         },
                         new
                         {
@@ -120,10 +120,10 @@ namespace Codigo_examen.Migrations
                             CodigoPostal = 1002,
                             Colonia = "Example",
                             DatosExtraDelUsuario = new Guid("e6e0f6fc-0000-4e24-adec-8de808a9d75e"),
-                            Email = "Example@example.com",
+                            Email = "Example@example3.com",
                             Estado = "Example",
                             Municipio = "Example",
-                            NumeroExterior = 2
+                            NumeroExterior = 3
                         });
                 });
 

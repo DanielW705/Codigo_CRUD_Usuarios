@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Codigo_examen.Migrations
 {
     /// <inheritdoc />
-    public partial class Migracioncompleta : Migration
+    public partial class x : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -70,9 +70,9 @@ namespace Codigo_examen.Migrations
                 columns: new[] { "Id", "ApellidoMaterno", "ApellidoPaterno", "Calle", "CodigoPostal", "Colonia", "DatosExtraDelUsuario", "Email", "Estado", "Municipio", "NumeroExterior" },
                 values: new object[,]
                 {
-                    { 1, "Example", "Example", "Example", 1000, "Example", new Guid("e8332afa-665a-4692-a08d-623f06c7cfe3"), "Example@example.com", "Example", "Example", 0 },
-                    { 2, "Example", "Example", "Example", 1001, "Example", new Guid("206c93fb-1500-40a0-9396-c2df231240b7"), "Example@example.com", "Example", "Example", 1 },
-                    { 3, "Example", "Example", "Example", 1002, "Example", new Guid("e6e0f6fc-0000-4e24-adec-8de808a9d75e"), "Example@example.com", "Example", "Example", 2 }
+                    { 1, "Example", "Example", "Example", 1000, "Example", new Guid("e8332afa-665a-4692-a08d-623f06c7cfe3"), "Example@example1.com", "Example", "Example", 1 },
+                    { 2, "Example", "Example", "Example", 1001, "Example", new Guid("206c93fb-1500-40a0-9396-c2df231240b7"), "Example@example2.com", "Example", "Example", 2 },
+                    { 3, "Example", "Example", "Example", 1002, "Example", new Guid("e6e0f6fc-0000-4e24-adec-8de808a9d75e"), "Example@example3.com", "Example", "Example", 3 }
                 });
 
             migrationBuilder.CreateIndex(
