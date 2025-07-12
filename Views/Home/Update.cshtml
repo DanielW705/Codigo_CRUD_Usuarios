@@ -1,0 +1,71 @@
+﻿@using Codigo_examen.Models.ViewModel
+@model ActualizarUsuarioViewModel
+<section class="create-card card-decoration">
+    <form asp-action="UpdateUser" asp-controller="Home" method="post" class="create-body container">
+        <h3 class="card-title text-center row">Registrate a la aplicacion</h3>
+        <div class="row my-2">
+            <input type="hidden" asp-for="Id" value="@Model.Id" />
+            <div class="form-group col">
+                <label for="InputName">Nombre</label>
+                <input asp-for="NombreUsuario" type="text" class="form-control" id="InputName" value="@Model.NombreUsuario">
+                <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group col">
+                <label for="InputLastName">Apellido Paterno</label>
+                <input asp-for="ApellidoPaterno" type="text" class="form-control" id="InputLastName" value="@Model.ApellidoPaterno">
+                <span asp-validation-for="ApellidoPaterno" class="text-danger"></span>
+            </div>
+            <div class="form-group col">
+                <label for="InputLastName1">Apellido Materno</label>
+                <input asp-for="ApellidoMaterno" type="text" class="form-control" id="InputLastName1" value="@Model.ApellidoMaterno">
+                <span asp-validation-for="ApellidoMaterno" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <h4 class="card-title row">Escriba su direccion</h4>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="InputStreet">Calle</label>
+                    <input asp-for="Calle" type="text" class="form-control" id="InputStreet" value="@Model.Calle">
+                    <span asp-validation-for="Calle" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="InputExNumber">Numero Exterior</label>
+                    <input asp-for="NumeroExterior" type="number" max="999" min="1" class="form-control" id="InputExNumber" value="@Model.NumeroExterior">
+                    <span asp-validation-for="NumeroExterior" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="InputSuburb">Colonia</label>
+                    <input asp-for="Colonia" type="text" class="form-control" id="InputSuburb" value="@Model.Colonia">
+                    <span asp-validation-for="Colonia" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="InputPostalCode">Codigo Postal</label>
+                    <input asp-for="CodigoPostal" type="number" min="1000" max="99999" class="form-control" id="InputPostalCode" value="@Model.CodigoPostal">
+                    <span asp-validation-for="CodigoPostal" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="InputCity">Municipio</label>
+                    <input asp-for="Municipio" type="text" class="form-control" id="InputCity" value="@Model.Municipio">
+                    <span asp-validation-for="Municipio" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="InputState">Estado</label>
+                    <input asp-for="Estado" type="text" class="form-control" id="InputState" value="@Model.Estado">
+                    <span asp-validation-for="Estado" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="InputEmail">Correo electronico</label>
+                    <input asp-for="Email" type="email" class="form-control" id="InputEmail" value="@Model.Email">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="d-flex flex-row justify-content-around align-items-center row-cols-4 mt-2">
+                <button type="submit" class="btn btn-primary">Actualizar Datos</button>
+                <a asp-action="" asp-controller="" type="button" class="btn btn-outline-primary">Actualizar contraseña</a>
+            </div>
+        </div>
+    </form>
+</section>

@@ -25,7 +25,9 @@ public class Startup
         services.AddScoped<ValidateUserCase>();
         services.AddScoped<AddUserCase>();
         services.AddScoped<SelectAllUserByUserCase>();
-
+        services.AddScoped<GetPaginatedClassUseCase>();
+        services.AddScoped<DeleteUserCase>();
+        services.AddScoped<UpdateUserUserCase>();
         services.AddMvc(options => options.EnableEndpointRouting = false);
     }
 

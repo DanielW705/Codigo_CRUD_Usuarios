@@ -1,4 +1,5 @@
 ﻿using Codigo_examen.Models.Mapper;
+using Codigo_examen.Models.ViewModel;
 
 namespace Codigo_examen.Models.Extensions
 {

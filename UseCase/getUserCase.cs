@@ -14,7 +14,9 @@ namespace Codigo_examen.UseCase
             _applicationDbContext = applicationDbContext;
         }
 
-        private async Task<Result<Usuarios>> GetUserByGuid(Guid id) => await _applicationDbContext.Usuarios.FirstAsync(u => u.Id.Equals(id));
+        private async Task<Result<Usuarios>> GetUserByGuid(Guid id) => await _applicationDbContext.Usuarios
+                                                                        .Include(u => u.DatosExtra)
+                                                                        .FirstAsync(u => u.Id.Equals(id));
 
         public async Task<Result<Usuarios>> Execute(Guid id) => await GetUserByGuid(id);
     }

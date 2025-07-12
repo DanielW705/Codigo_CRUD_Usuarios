@@ -1,0 +1,137 @@
+﻿@using Codigo_examen.Models.Mapper
+@using Codigo_examen.Models.ViewModel
+@model PaginationViewModel
+<div class="container-table">
+<div class="row">
+    <form asp-action="Index" asp-controller="flags" method="get" class="row row-cols-lg-auto g-3 align-items-center">
+        <div class="col-12">
+            <label class="visually-hidden">Search</label>
+            <div class="input-group">
+                <div class="input-group-text">Search</div>
+                <input type="text" value="" asp-for="Pagination.Search" placeholder="Usuario" class="form-control" />
+            </div>
+        </div>
+        <div class="col-12">
+            <label class="visually-hidden" for="inlineFormSelect">Elementos por pagina</label>
+            <select asp-for="Pagination.PageSize" name="size" class="form-control" asp-items="@(new SelectList(Model.SelectedOption))"></select>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Filtrar</button>
+        </div>
+    </form>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Nombre de usuario</th>
+            <th scope="col">Apellido Paterno</th>
+            <th scope="col">Apellido Materno</th>
+            <th scope="col">Calle</th>
+            <th scope="col">Numero Exterior</th>
+            <th scope="col">Colonia</th>
+            <th scope="col">Codigo Postal</th>
+            <th scope="col">Municipio</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Correo Electronico</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (UsuarioDto usuario in  Model.Pagination.Items)
+        {
+            <tr>
+                <th scope="row">@usuario.Nombre</th>
+                <td scope="row">@usuario.ApellidoPaterno</td>
+                @{
+                    if (usuario.ApellidoMaterno is not null){<td scope="row">@usuario.ApellidoMaterno</td>}
+                    else{<td scope="row">"Sin informacion" </td>}
+                }   
+                <td scope="row">@usuario.Calle</td>
+                @{ 
+                    if(usuario.NumeroExterior is not null) { <td scope="row">@usuario.NumeroExterior</td>}
+                    else {<td scope="row">"Sin informacion"</td>}
+                }
+                <td scope="row">@usuario.Colonia</td>
+                <td scope="row">@usuario.CodigoPostal</td>
+                @{ 
+                    if(usuario.Municipio is not null) { <td scope="row">@usuario.Municipio</td>}
+                    else {<td scope="row">"Sin informacion"</td>}
+                }
+                @{ 
+                    if(usuario.Estado is not null) { <td scope="row">@usuario.Estado</td>} 
+                    else{<td scope="row">"Sin informacion"</td>}
+                }
+                <td scope="row">@usuario.Email</td>
+                <td>
+                    <a asp-action="Update" asp-controller="Home" asp-route-Id="@usuario.Id"  type="button" class="btn btn-outline-primary">
+                        <i class="bi bi-pencil-square"></i>
+                    </a>
+                    <a asp-action="Delete" asp-controller="Home" asp-route-Id="@usuario.Id" type="button" class="btn btn-outline-danger">
+                        <i class="bi bi-trash3-fill"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        @if (Model.Pagination.CurrentPage > 1)
+        {
+            <li class="page-item">
+                <a asp-action="index"
+                   asp-controller="flags"
+                   asp-route-search="@Model.Pagination.Search"
+                   asp-route-page="@(Model.Pagination.CurrentPage - 1)"
+                   asp-route-size="@Model.Pagination.PageSize"
+                   class="page-link">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a asp-controller="flags"
+                   asp-route-search="@Model.Pagination.Search"
+                   asp-route-page="@(Model.Pagination.CurrentPage - 1)"
+                   asp-route-size="@Model.Pagination.PageSize"
+                   class="page-link">
+                    @(Model.Pagination.CurrentPage - 1)
+                </a>
+            </li>
+        }
+        <li class="page-item">
+            <a class="page-link" href="#">
+                @Model.Pagination.CurrentPage
+            </a>
+        </li>
+        @{
+            int totalPages = (int)Math.Ceiling(Model.Pagination.TotalItems / (double)Model.Pagination.PageSize);
+
+            if (Model.Pagination.CurrentPage < totalPages)
+            {
+                <li class="page-item">
+                    <a href="@Url.Action("AllUsers","Home", new {
+                     page = Model.Pagination.CurrentPage + 1,
+                     size = Model.Pagination.PageSize,
+                     search = Model.Pagination.Search
+                     })"
+                       class="page-link">
+                        @(Model.Pagination.CurrentPage + 1)
+                    </a>
+                </li>
+            }
+            if (Model.Pagination.CurrentPage + 1 < totalPages)
+            {
+                <li class="page-item">
+                    <a asp-controller="AllUsers"
+                       asp-route-search="@Model.Pagination.Search"
+                       asp-route-page="@(Model.Pagination.CurrentPage + 1)"
+                       asp-route-size="@Model.Pagination.PageSize"
+                       class="page-link">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            }
+        }
+    </ul>
+</nav>
+</div>
